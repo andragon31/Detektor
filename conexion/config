@@ -1,0 +1,9 @@
+{
+    "conexion":{
+        "host":"localhost",
+        "user":"postgres",
+        "password":"horda10",
+        "database":"detektor",
+        "port":"5432"
+    }
+}
