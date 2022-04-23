@@ -34,11 +34,11 @@
             
             break;
         case 'DELETE':
-            if(isset($_DELETE['placa'])){
-                $vehi = $vehiculo->eliminarVehiculo($conexion, $_DELETE['placa']);
+            if(isset($_GET['placa'])){
+                $vehi = $vehiculo->eliminarVehiculo($conexion, $_GET['placa']);
                 echo $vehi;
             }
-            
+
             break;
     }
 

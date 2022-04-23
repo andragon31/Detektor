@@ -43,12 +43,14 @@ class vehiculo{
         return json_encode($arr);
     }
 
-    function crearVehiculo($conexion, $data){
+    function crearVehiculo($conexion, $vehiculo){
+
+        $data = $vehiculo['vehiculo'];
 
         $query = "INSERT INTO vehiculos(
             placa, vin, linea, cilindrada, color, chasis, tipo, modelo, marca)
             VALUES ('".$data['placa']."', '".$data['vin']."', ".$data['linea'].", ".$data['cilindrada'].", 
-            '".$data['color']."', '".$data['chasis']."', ".$data['id_tipo'].", ".$data['id_modelo'].", ".$data['id_marca'].");";
+            '".$data['color']."', '".$data['chasis']."', ".$data['tipo'].", ".$data['modelo'].", ".$data['marca'].");";
         $resultado = pg_query($conexion,$query) or die ("error al crear");
         $arr = pg_fetch_all($resultado);
 
@@ -56,12 +58,14 @@ class vehiculo{
         
     }
 
-    function actualizarVehiculo($conexion, $data){
+    function actualizarVehiculo($conexion, $vehiculo){
+
+        $data = $vehiculo['vehiculo'];
 
         $query = "UPDATE vehiculos
         SET vin= '".$data['vin']."', linea= ".$data['linea'].", cilindrada= ".$data['cilindrada'].", 
-        color= '".$data['color']."', chasis= '".$data['chasis']."', tipo=".$data['id_tipo'].", 
-        modelo=".$data['id_modelo'].", marca=".$data['id_marca']."
+        color= '".$data['color']."', chasis= '".$data['chasis']."', tipo=".$data['tipo'].", 
+        modelo=".$data['modelo'].", marca=".$data['marca']."
         WHERE placa = '".$data['placa']."';";
         $resultado = pg_query($conexion,$query) or die ("error al actualizar");
         $arr = pg_fetch_all($resultado);
