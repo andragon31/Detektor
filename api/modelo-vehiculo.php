@@ -9,7 +9,7 @@
         
         case 'GET':
             if(isset($conexion, $_GET['id_marca'], $_GET['id_tipo'])){
-                
+                //return json_encode($_GET['id_marca']);
                 $modelos = $modeloVehiculo->getModelosVehiculo($conexion, $_GET['id_marca'], $_GET['id_tipo']);
                 echo $modelos;
             }

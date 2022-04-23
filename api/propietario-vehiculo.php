@@ -9,15 +9,22 @@
         
         case 'GET':
             if(isset($conexion, $_GET['id'])){
-                $marca = $marca->getgetMarcaVehiculo($_GET['id']);
-                echo $marca;
+                $propveh = $propVehiculo->getPropietarioVehiculo($conexion, $_GET['id']);
+                echo $propveh;
             }
-            else{
-                $marcas = $marca->getMarcasVehiculo($conexion);
-                echo $marcas;
+            
+            break;
+
+        case 'POST':
+            $_POST = json_decode(file_get_contents('php://input'), true);
+            if(isset($conexion, $_POST)){
+                $propveh = $propVehiculo->ligarVehiculoPropietario($conexion, $_POST);
+                echo $propveh;
             }
             
             break;
     }
+
+
 
 ?>

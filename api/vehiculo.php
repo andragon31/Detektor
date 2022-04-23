@@ -34,9 +34,11 @@
             
             break;
         case 'DELETE':
-            $_DELETE = json_decode(file_get_contents('php://input'), true);
-            $vehi = $vehiculo->eliminarVehiculo($conexion, $_DELETE['placa']);
-            echo $vehi;
+            if(isset($_DELETE['placa'])){
+                $vehi = $vehiculo->eliminarVehiculo($conexion, $_DELETE['placa']);
+                echo $vehi;
+            }
+            
             break;
     }
 

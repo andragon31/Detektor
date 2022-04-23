@@ -6,8 +6,8 @@ class propietario{
 
         $query = "SELECT * FROM propietario WHERE identificacion = ".$id.";";
         $resultado = pg_query($conexion,$query) or die ("error en la consulta");
-        $arr = pg_fetch_all($resultado);
-        
+        $arr = pg_fetch_object($resultado);
+
         return json_encode($arr);
     }
 
